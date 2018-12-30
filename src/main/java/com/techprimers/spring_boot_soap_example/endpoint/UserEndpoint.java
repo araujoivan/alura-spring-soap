@@ -7,7 +7,6 @@ package com.techprimers.spring_boot_soap_example.endpoint;
 
 import com.techprimers.spring_boot_soap_example.GetUserRequest;
 import com.techprimers.spring_boot_soap_example.GetUserResponse;
-import com.techprimers.spring_boot_soap_example.User;
 import com.techprimers.spring_boot_soap_example.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.ws.server.endpoint.annotation.Endpoint;
