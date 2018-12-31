@@ -1,5 +1,5 @@
 <!-- 
-Postman
+Example using Postman
 POST to http://localhost:8095/soapWS
 content type text/xml
 https://www.youtube.com/watch?v=mr_2-AWYCoc

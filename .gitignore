@@ -1,3 +1,6 @@
 /target/
 /spring-soap-server/target/
 /spring-soap-client/target/
+/spring-soap-client-wsdl-remote/target/
+/spring-soap-client-wsdl-remote copy/target/
+/spring-soap-client-wsdl-local/target/

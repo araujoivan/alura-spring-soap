@@ -1,0 +1,3 @@
+app:
+    ws:
+        default-url: http://localhost:8095/soapWS

@@ -8,7 +8,7 @@
         <relativePath/>
     </parent>
     <groupId>com.mycompany</groupId>
-    <artifactId>spring-soap-client</artifactId>
+    <artifactId>spring-soap-client-wsdl-remote</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
@@ -30,7 +30,10 @@
 
     <build>
         <plugins>
-<!--            <plugin>
+       <!-- Uncomment to generate the classes again
+            It is mandatory the server-side be running 
+        -->
+        <!--   <plugin>
                 <groupId>org.jvnet.jaxb2.maven2</groupId>
                 <artifactId>maven-jaxb2-plugin</artifactId>
                 <version>0.13.1</version>
@@ -43,18 +46,20 @@
                 </executions>
                 <configuration>
                     <schemaLanguage>WSDL</schemaLanguage>
-                    <generatePackage>domain</generatePackage>
+                    <generatePackage>com.mycompany.spring.soap.domain</generatePackage>
+                    <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
                     <schemas>
                         <schema>
                             <url>http://localhost:8095/soapWS/users.wsdl</url>
                         </schema>
                     </schemas>
                 </configuration>
-            </plugin>-->
+            </plugin> -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>            
         </plugins>
     </build>
+    <name>spring-soap-client-wsdl-remote</name>
 </project>

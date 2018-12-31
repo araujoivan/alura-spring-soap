@@ -5,10 +5,10 @@
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
         <version>2.1.1.RELEASE</version>
-        <relativePath/> 
+        <relativePath/>
     </parent>
     <groupId>com.mycompany</groupId>
-    <artifactId>spring-soap-server</artifactId>
+    <artifactId>spring-soap-client-wsdl-local</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
@@ -30,29 +30,33 @@
 
     <build>
         <plugins>
-            <plugin>
-                <groupId>org.codehaus.mojo</groupId>
-                <artifactId>jaxb2-maven-plugin</artifactId>
-                <version>1.6</version>
+            <!-- Uncomment to generate the classes again -->
+            <!--<plugin>
+                <groupId>org.jvnet.jaxb2.maven2</groupId>
+                <artifactId>maven-jaxb2-plugin</artifactId>
+                <version>0.13.1</version>                   
                 <executions>
                     <execution>
-                        <id>xjc</id>
+                        <id>users</id>
                         <goals>
-                          <!-- Uncomment the line bellow to generate the domain classes again-->
-                          <!-- <goal>xjc</goal> -->
+                            <goal>generate</goal>
                         </goals>
+                        <configuration>
+                            <generatePackage>com.mycompany.spring.soap.domain</generatePackage>
+                            <generateDirectory>${project.basedir}/src/main/java</generateDirectory>
+                            <schemaDirectory>${project.basedir}/src/main/resources/wsdl</schemaDirectory>
+                            <schemaIncludes>
+                                <include>users.wsdl</include>
+                            </schemaIncludes>
+                        </configuration>
                     </execution>
                 </executions>
-                <configuration>
-                    <schemaDirectory>${project.basedir}/src/main/resources</schemaDirectory>
-                    <outputDirectory>${project.basedir}/src/main/java</outputDirectory>
-                    <clearOutputDir>false</clearOutputDir>
-                </configuration>
-            </plugin>
+            </plugin> -->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>            
         </plugins>
     </build>
+    <name>spring-soap-client-wsdl-local</name>
 </project>

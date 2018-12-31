@@ -5,21 +5,25 @@
  */
 package com.mycompany.spring.soap.client;
 
-
-import domain.GetUserRequest;
-import domain.GetUserResponse;
+import com.mycompany.spring.soap.domain.GetUserRequest;
+import com.mycompany.spring.soap.domain.GetUserResponse;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.ws.client.core.support.WebServiceGatewaySupport;
 import org.springframework.ws.soap.client.core.SoapActionCallback;
 
 public class UserClient extends WebServiceGatewaySupport {
 
+    @Value("${app.ws.default-url}")
+    private String defaultWSUri;
+
     public GetUserResponse getClient(String name) {
 
-        GetUserRequest request = new GetUserRequest();
+        final GetUserRequest request = new GetUserRequest();
+
         request.setName(name);
 
-        GetUserResponse response = (GetUserResponse) getWebServiceTemplate()
-                .marshalSendAndReceive("http:http://localhost:8095/soapWS/users", request,
+        final GetUserResponse response = (GetUserResponse) getWebServiceTemplate()
+                .marshalSendAndReceive(defaultWSUri.concat("/users"), request,
                         new SoapActionCallback("http://soap.spring.mycompany.com/GetUserRequest"));
 
         return response;
