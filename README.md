@@ -1,4 +1,4 @@
-# springSOAP
+# Spring SOAP
 
 This is a simple implementation of an spring soap project which contains a server (spring-soap-server) with a endpoint that exposes a service called 
 get-user which returns a object User using the field "name" as parameter.
